@@ -1,0 +1,21 @@
+<script setup>
+defineProps({ datapoint: Object });
+</script>
+
+<template>
+  <article class="flex items-center justify-start gap-4 mb-6">
+    <div>
+      <img :src="datapoint.current.condition.icon" />
+    </div>
+    <div>
+      <h1 class="text-xl">
+        {{ datapoint.location.name }}, {{ datapoint.location.country }}
+      </h1>
+      <h2 class="text-lg">
+        Current temperature: {{ datapoint.current.temp_c }} &#8451;
+      </h2>
+    </div>
+  </article>
+</template>
+
+<style scoped></style>

@@ -1,0 +1,32 @@
+<script setup>
+import { ref } from "vue";
+
+const location = ref("");
+const handleSubmit = () => {
+  location.value = "";
+};
+</script>
+
+<template>
+  <section>
+    <form novalidate @submit.prevent="handleSubmit">
+      <label class="text-xl" for="location">Location:</label>
+      <input
+        class="form-input w-full rounded-md mt-1 mb-4 text-2xl text-gray-900"
+        type="text"
+        id="location"
+        name="location"
+        placeholder="Type in a location"
+        v-model="location"
+      />
+      <input
+        class="w-full cursor-pointer rounded-md p-2 text-2xl bg-blue-900 disabled:bg-gray-900 disabled:text-gray-400"
+        type="submit"
+        value="Submit"
+        :disabled="!location"
+      />
+    </form>
+  </section>
+</template>
+
+<style scoped></style>
