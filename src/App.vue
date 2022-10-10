@@ -1,8 +1,14 @@
-<script setup></script>
+<script setup>
+import Footer from "./components/Footer.vue";
+import Header from "./components/Header.vue";
+import Main from "./components/Main.vue";
+</script>
 
 <template>
-  <div>
-    <h1>Hello World</h1>
+  <div class="flex flex-col h-screen bg-slate-800 text-white">
+    <Header />
+    <Main />
+    <Footer />
   </div>
 </template>
 
