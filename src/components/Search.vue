@@ -1,8 +1,11 @@
 <script setup>
-import { ref } from "vue";
+import { defineEmits, ref } from "vue";
 
 const location = ref("");
+const emit = defineEmits(["onSubmit"]);
+
 const handleSubmit = () => {
+  emit("onSubmit", location.value);
   location.value = "";
 };
 </script>

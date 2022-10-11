@@ -1,9 +1,13 @@
 <script setup>
+import { defineEmits } from "vue";
 import DataItem from "./DataItem.vue";
 
 defineProps({ datapoints: Array });
+const emit = defineEmits(["onReset"]);
 
-const handleReset = () => {};
+const handleReset = () => {
+  emit("onReset");
+};
 </script>
 
 <template>

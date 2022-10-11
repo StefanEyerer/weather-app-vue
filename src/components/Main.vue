@@ -1,10 +1,19 @@
 <script setup>
 import { ref } from "vue";
-import { data } from "../mock-data";
+import { requestWeatherData } from "../utils/request-weather-data";
 import DataList from "./DataList.vue";
 import Search from "./Search.vue";
 
-const weatherData = ref(data);
+const weatherData = ref([]);
+
+const handleSubmit = async (location) => {
+  const result = await requestWeatherData(location);
+  weatherData.value = [...weatherData.value, result];
+};
+
+const handleReset = () => {
+  weatherData.value = [];
+};
 </script>
 
 <template>
@@ -13,8 +22,8 @@ const weatherData = ref(data);
       <h1 class="text-center text-4xl">
         Get current weather data for any location!
       </h1>
-      <Search />
-      <DataList :datapoints="weatherData" />
+      <Search @on-submit="handleSubmit" />
+      <DataList :datapoints="weatherData" @on-reset="handleReset" />
     </div>
   </main>
 </template>
